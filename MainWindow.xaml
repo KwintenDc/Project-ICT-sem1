@@ -8,8 +8,30 @@
         Title="Piano via Arduino Uno" SizeToContent="Height" Width="1400" Background="WhiteSmoke" ResizeMode="NoResize"
         Closing="Window_Closing">
     <StackPanel Margin="5">
+        <GroupBox Header="Logingegevens">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Name="lblName" Margin="0,5,0,5">Username :</Label>
+                <Label Name="lblPassword" Grid.Row="1" Margin="0,5,0,5">Password :</Label>
+                <TextBox Name="txtbxName" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="10,5,10,5" VerticalContentAlignment="Center"></TextBox>
+                <PasswordBox Name="passBx" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,5,10,5" VerticalContentAlignment="Center"></PasswordBox>
+                <Label Name="lbl1" Grid.Row="2" Grid.Column="1" Margin="10,10,200,10">Vul de correcte gegevens in om een COM-poort te selecteren.</Label>
+                <Button Name="btnLEAVE"  Grid.Column="1" Grid.Row="2" Margin="10,10,10,10" HorizontalAlignment="Right" Width="180" Click="btnLEAVE_Click">LEAVE</Button>
+                <Button Name="btnOK"  Grid.Column="2" Grid.Row="2" Margin="10,10,10,10" Click="btnOK_Click">OK</Button>
+            </Grid>
+        </GroupBox>
         <GroupBox Header="Kies een COM-poort">
-            <ComboBox Name="cbxComPorts" Grid.ColumnSpan="10" Margin="10,2,10,2" SelectionChanged="cmbxCom_SelectionChanged" ToolTip="Selecteer de juiste COM-poort om te beginnen."></ComboBox>
+            <ComboBox Name="cbxComPorts" Grid.ColumnSpan="10" Margin="10,2,10,2" SelectionChanged="cmbxCom_SelectionChanged" ToolTip="Selecteer de juiste COM-poort om te beginnen."
+                      IsEnabled="False"></ComboBox>
         </GroupBox>
         <GroupBox Header="Piano">
             <Grid>
@@ -125,7 +147,6 @@
                 <Label x:Name="lblA2" Grid.Column="24" Grid.ColumnSpan="2" Grid.Row="1" HorizontalContentAlignment="Center" Target="{Binding ElementName=btnA2}" Height="30" VerticalAlignment="Top">_X</Label>
                 <Label x:Name="lblAs2" Grid.Column="25" Grid.ColumnSpan="2" Grid.Row="0" HorizontalContentAlignment="Center" Target="{Binding ElementName=btnAs2}" Foreground="White" Margin="0,20,0,0" Height="30" VerticalAlignment="Top">_C</Label>
                 <Label x:Name="lblB2" Grid.Column="26" Grid.ColumnSpan="2" Grid.Row="1" HorizontalContentAlignment="Center" Target="{Binding ElementName=btnB2}" Height="30" VerticalAlignment="Top">_V</Label>
-
             </Grid>
         </GroupBox>
         <GroupBox Header="Speeltijd noot">
