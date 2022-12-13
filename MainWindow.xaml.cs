@@ -191,36 +191,48 @@ namespace Project_ICT_sem1
             if((_serialPort.IsOpen) && (control == "1"))
                 _serialPort.WriteLine($"23{sldr.Value}");
         }
+
+        // Deze drukknop test alle toetsen in volgorde.
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
             if ((_serialPort.IsOpen) && (control == "1"))
                 _serialPort.WriteLine($"24{sldr.Value}");
         }
 
+        // Deze drukknop speelt 'Merry X-mas'.
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
             if((_serialPort.IsOpen) && (control == "1"))
                 _serialPort.WriteLine($"25{sldr.Value}");
         }
 
+        // Deze drukknop speelt 'Ode to Joy'.
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
             if ((_serialPort.IsOpen) && (control == "1"))
                 _serialPort.WriteLine($"26{sldr.Value}");
         }
+
+        // Deze drukknop speelt de tetris themesong.
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
             if ((_serialPort.IsOpen) && (control == "1"))
                 _serialPort.WriteLine($"27{sldr.Value}");
         }
+        
+        // Verstuurde data opvangen.
         void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             control = _serialPort.ReadLine().Trim();
         }
+
+        // Wanneer het window sluit, sluit de seriële poort automatisch ook. 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             _serialPort.Close();
         }
+
+        // Slidervalue weergeven.
         private void sldr_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             lblSldr.Content = $"{sldr.Value} ms";
@@ -231,16 +243,22 @@ namespace Project_ICT_sem1
             Close();
         }
 
+        // De 'OK-Button' controlleerd of de ingevulde gegevens correct zijn. Dan wordt de knop groen.
+        // Anders wordt de knop rood en is de combobox niet bruikbaar.
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             User user = new User();
             user.UserName = txtbxName.Text;
             user.Password = passBx.Password;
-            if(user.UserName == "Kwinten Declercq" || user.UserName == "Ruben Buysschaert")
-                userTrue = true;  
+            if (user.UserName == "Kwinten Declercq" || user.UserName == "Ruben Buysschaert")
+                userTrue = true;
+            else
+                userTrue = false;
             if (user.Password == "1234")
                 passwordTrue = true;
-            if (userTrue || passwordTrue)
+            else
+                passwordTrue = false;
+            if (userTrue && passwordTrue)
             {
                 cbxComPorts.IsEnabled = true;
                 btnOK.Background = Brushes.LimeGreen;
