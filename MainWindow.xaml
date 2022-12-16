@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_ICT_sem1"
         mc:Ignorable="d"
-        Title="Piano via Arduino Uno" SizeToContent="Height" Width="1400" Background="WhiteSmoke" ResizeMode="NoResize"
+        Title="WPF Piano via Arduino Uno" SizeToContent="Height" Width="1400" Background="WhiteSmoke" ResizeMode="NoResize"
         Closing="Window_Closing">
     <StackPanel Margin="5">
         <GroupBox Header="Logingegevens">
@@ -161,7 +161,7 @@
         <GroupBox Header="Voorgeprogrammeerde stukken">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="btn1" Margin="5,5,50,5" Padding="20,5,20,5" FontSize="20" Click="btn1_Click" ToolTip="Deze knop speelt alle toetsen van links naar rechts">Test alle toetsen</Button>
-                <Button x:Name="btn2" Margin="50,5,50,5" Padding="20,5,20,5" FontSize="20" Click="btn2_Click" ToolTip="Speel 'Merry Christmas and a happy new year'">Merry Christmas song</Button>
+                <Button x:Name="btn2" Margin="50,5,50,5" Padding="20,5,20,5" FontSize="20" Click="btn2_Click" ToolTip="Speel 'Merry Christmas and a happy new year'">Merry Christmas</Button>
                 <Button x:Name="btn3" Margin="50,5,50,5" Padding="20,5,20,5" FontSize="20" Click="btn3_Click" ToolTip="Speel 'Ode to Joy'">Ode to Joy</Button>
                 <Button x:Name="btn4" Margin="50,5,50,5" Padding="20,5,20,5" FontSize="20" Click="btn4_Click" ToolTip="Speel de 'Tetris theme song'">Tetris</Button>
             </StackPanel>

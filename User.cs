@@ -9,7 +9,7 @@ namespace Vives
 {
     internal class User
     {
-		private string username;
+		private string username = "";
 
 		public string UserName
 		{
@@ -23,7 +23,7 @@ namespace Vives
 			}
 		}
 
-		private string password;
+		private string password = "";
 
 		public string Password
 		{
