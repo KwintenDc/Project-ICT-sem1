@@ -25,8 +25,10 @@
                 <TextBox Name="txtbxName" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="10,5,10,5" VerticalContentAlignment="Center"></TextBox>
                 <PasswordBox Name="passBx" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,5,10,5" VerticalContentAlignment="Center"></PasswordBox>
                 <Label Name="lbl1" Grid.Row="2" Grid.Column="1" Margin="10,10,200,10">Vul de correcte gegevens in om een COM-poort te selecteren.</Label>
-                <Button Name="btnLEAVE"  Grid.Column="1" Grid.Row="2" Margin="10,10,10,10" HorizontalAlignment="Right" Width="180" Click="btnLEAVE_Click">LEAVE</Button>
-                <Button Name="btnOK"  Grid.Column="2" Grid.Row="2" Margin="10,10,10,10" Click="btnOK_Click">OK</Button>
+                <Button Name="btnLEAVE"  Grid.Column="1" Grid.Row="2" Margin="10,10,10,10" HorizontalAlignment="Right" Width="180" Click="btnLEAVE_Click">SLUIT APP</Button>
+                <Button Name="btnOK"  Grid.Column="2" Grid.Row="2" Margin="10" Click="btnOK_Click">OK</Button>
+                <Button Name="btnShow" Grid.Column="1" Grid.Row="2" Width="180" Margin="10,10,210,10" HorizontalAlignment="Right" ToolTip="Toon het wachtwoord"
+                        Click="btnShow_Click">TOON WACHTWOORD</Button>
             </Grid>
         </GroupBox>
         <GroupBox Header="Kies een COM-poort">

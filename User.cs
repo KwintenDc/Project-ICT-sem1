@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,9 +15,11 @@ namespace Vives
 		{
 			get { return username; }
 			set 
-			{ 
-				if(value != "")
-					username = value; 
+			{
+				if (value != "")
+					username = value;
+				else
+					username = "NA";
 			}
 		}
 
@@ -27,9 +30,16 @@ namespace Vives
 			get { return password; }
 			set 
 			{
-                if (value != "")
-                    password = value; 
+				if (value != "")
+					password = value;
+				else
+					password = "NA";
 			}
+		}
+
+		public string ToonWachtwoord()
+		{
+				return $"Uw wachtwoord is : {Password}";
 		}
     }
 }

@@ -26,9 +26,10 @@ namespace Project_ICT_sem1
     public partial class MainWindow : Window
     {
         SerialPort _serialPort;
+        User user = new User();
         string control = "1";
-        bool userTrue = false;
-        bool passwordTrue = false;
+        int timesWrong;
+        bool loginTrue = false;
 
         public MainWindow()
         {
@@ -245,20 +246,19 @@ namespace Project_ICT_sem1
 
         // De 'OK-Button' controlleerd of de ingevulde gegevens correct zijn. Dan wordt de knop groen.
         // Anders wordt de knop rood en is de combobox niet bruikbaar.
+        // Als de gebruiker 3 keer foute gegevens invoerd dan sluit het programma automatisch.
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
             user.UserName = txtbxName.Text;
             user.Password = passBx.Password;
-            if (user.UserName == "Kwinten Declercq" || user.UserName == "Ruben Buysschaert")
-                userTrue = true;
+            if ((user.UserName == "Kwinten Declercq" || user.UserName == "Ruben Buysschaert") && user.Password == "1234")
+                loginTrue = true;
             else
-                userTrue = false;
-            if (user.Password == "1234")
-                passwordTrue = true;
-            else
-                passwordTrue = false;
-            if (userTrue && passwordTrue)
+            {
+                timesWrong++;
+                loginTrue = false;
+            }
+            if (loginTrue)
             {
                 cbxComPorts.IsEnabled = true;
                 btnOK.Background = Brushes.LimeGreen;
@@ -267,7 +267,19 @@ namespace Project_ICT_sem1
             {
                 cbxComPorts.IsEnabled = false;
                 btnOK.Background = Brushes.Red;
-            }     
+            }  
+            if(timesWrong == 3)
+            {
+                MessageBox.Show("Gegevens 3 keer verkeerd, vaarwel.","Verkeerde gegevens",MessageBoxButton.OK,MessageBoxImage.Error);
+                Close();
+            }
+        }
+        // Deze knop toon het ingegeven wachtwoord via een Messagebox. 
+        private void btnShow_Click(object sender, RoutedEventArgs e)
+        {
+            user.UserName = txtbxName.Text;
+            user.Password = passBx.Password;
+            MessageBox.Show(user.ToonWachtwoord(), "Wachtwoord", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
